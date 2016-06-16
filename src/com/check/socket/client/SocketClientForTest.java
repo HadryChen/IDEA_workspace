@@ -15,9 +15,12 @@ public class SocketClientForTest {
     private PrintWriter pw;
 
     public SocketClientForTest() throws Exception {
+        //ip 端口 连接服务端
         client = new Socket("localhost",8888);
         pw = new PrintWriter(client.getOutputStream());
+        //读取 控制台的输入
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        //将控制台的输入发送到服务端
         pw.write(br.readLine());
         //pw.write("this is a test fow socket,if you receive this message in the others class and no error get, meanwhile the test is successfully");
 
